@@ -18,9 +18,7 @@ Route::post('/login', [
 ]);
 
 // PROTECTED LOGIN
-Route::middleware(
-    'auth:sanctum'
-)->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/me', [
         AuthController::class,
