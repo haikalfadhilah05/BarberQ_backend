@@ -17,6 +17,21 @@ Route::post('/login', [
     'login'
 ]);
 
+// USER BOLEH LIHAT
+Route::get(
+    '/barbers',
+    [
+        BarberController::class,'index'
+    ]
+);
+
+Route::get(
+    '/layanans',
+    [
+        LayananController::class,'index'
+    ]
+);
+
 // PROTECTED LOGIN
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -34,23 +49,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource(
         'bookings',
         BookingController::class
-    );
-
-    // USER BOLEH LIHAT
-    Route::get(
-        '/barbers',
-        [
-            BarberController::class,
-            'index'
-        ]
-    );
-
-    Route::get(
-        '/layanans',
-        [
-            LayananController::class,
-            'index'
-        ]
     );
 
     // ADMIN ONLY
